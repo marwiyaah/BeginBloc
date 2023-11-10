@@ -17,8 +17,11 @@
             <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
             <li class="nav-item"><a href="/services" class="nav-link">Services</a></li>
             <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-            <li class="nav-item"><a href="/posts" class="nav-link">Blog</a></li>
+            <li class="nav-item"><a href="/posts/index" class="nav-link">Blog</a></li>
+            <li class="nav-item"><a href="/posts/create" class="nav-link">Create Post</a></li>
           </ul>
+
+          
         </header>
         {{-- <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

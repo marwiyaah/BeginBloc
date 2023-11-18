@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://beginbloc'),
 
     'asset_url' => env('ASSET_URL'),
 
@@ -183,7 +183,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         // Collective\Html\HtmlServiceProvider::class, 
         Spatie\Permission\PermissionServiceProvider::class,
-        Unisharp\Ckeditor\ServiceProvider::class,
+        
 
         /*
          * Package Service Providers...

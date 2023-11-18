@@ -18,10 +18,10 @@ class PostController extends Controller
     public function index()
     {
         
-        $posts = Post::all();
+        // $posts = Post::all();
         //$posts = Post::orderby('title','desc') ->get();
         //return $post = Post::where('title','like','Post two') -> get();
-        //$posts = DB::select('SELECT * FROM posts');
+        $posts = DB::select('SELECT * FROM posts');
 
         //$posts = Post::orderBy('title', 'desc')->take(1)->get();
         $posts = Post::orderBy('created_at', 'desc')->paginate(10);
@@ -79,9 +79,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($title)
     {
-        $post = Post::find($id);
+        $post = Post::find($title);
         return view('posts.show')->with('post', $post);
     }
 

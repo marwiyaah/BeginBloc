@@ -53,6 +53,7 @@ Route::get('/history', 'App\Http\Controllers\PagesController@history');
 // delete account page
 Route::get('/deleteAcc', 'App\Http\Controllers\PagesController@deleteAcc');
 
+
 // Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
 // Route::post('posts/create', [App\Http\Controllers\PostController::class, 'store'])->name('posts.store');
 
@@ -60,8 +61,9 @@ Route::get('/deleteAcc', 'App\Http\Controllers\PagesController@deleteAcc');
 // web.php
 // Route::get('/posts/{post}', 'PostController@show')->name('posts.show');
 
-Route::get('/posts', 'App\Http\Controllers\PostController@show')->name('posts.index');
-Route::post('/posts', 'App\Http\Controllers\PostController@store');
+Route::get('/posts/create','App\Http\Controllers\PostController@create')->name('posts.create');
+Route::get('/posts/show', 'App\Http\Controllers\PostController@show')->name('posts.show');
+Route::post('/posts', 'App\Http\Controllers\PostController@store')->name('posts.store');
 
 // routes/web.php
 Route::resource('posts', 'App\Http\Controllers\PostController');

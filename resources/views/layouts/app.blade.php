@@ -1,3 +1,4 @@
+{{-- hi --}}
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -8,9 +9,18 @@
         <title>{{config('app.name', 'BeginBloc')}}</title>
     
         <!-- Include CKEditor from CDN -->
-        <script src="https://cdn.ckeditor.com/ckeditor5/44.0.3/classic/ckeditor.js"></script>
+        {{-- <script src="https://cdn.ckeditor.com/ckeditor5/44.0.3/classic/ckeditor.js"></script> --}}
 
-        
+        <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  {{-- <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" /> --}}
+  <!-- CSS Files -->
+  <link id="pagestyle" href="../assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
     </head>
     {{-- <body class="p-3 mb-2 bg-danger text-white"> --}}
     <body>
@@ -18,11 +28,6 @@
         <div class="container">
             @include('inc.messages')
             @yield('content')
-
-            {{-- <script src="https://cdn.ckeditor.com/ckeditor5/44.0.3/classic/ckeditor.js"></script>
-            <script>
-                CKEDITOR.replace( 'article-ckeditor' );
-            </script> --}}
                 
         </div>
 

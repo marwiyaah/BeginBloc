@@ -13,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            //
-            $table->text('body')->after('title');
-        });
+        // Check if the 'body' column does not exist before adding it
+        if (!Schema::hasColumn('posts', 'body')) {
+            Schema::table('posts', function (Blueprint $table) {
+                $table->text('body')->after('title')->nullable();
+                // You can customize the column definition as needed
+            });
+        }
     }
 
     /**

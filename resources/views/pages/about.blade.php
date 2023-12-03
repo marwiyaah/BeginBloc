@@ -5,7 +5,7 @@
 <style>
     /* public/css/styles.css */
     body {
-        margin-top: 150px;
+        margin: 150px 200px 0;
         font-family: 'Raleway', sans-serif; /* Apply the desired font */
     }
 

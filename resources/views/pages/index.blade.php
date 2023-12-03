@@ -37,12 +37,12 @@
 
     <style>
         body {
-            margin: 0;
+            margin: 70px 80px 0;
             background: linear-gradient(120deg, #F6F8FA 0%, #D2E4ED 100%);
             color: rgba(0, 0, 0, 0.8); /* Adjust text color as needed */
             /* background-image: url('peakpx.jpg'); */
-            background-image: url('<?php echo "/BeginBloc/resources/views/pages/homepage_photo.jpg" ?>');
-            background-size: cover;
+            /* background-image: url('<?php echo "/BeginBloc/resources/views/pages/homepage_photo.jpg" ?>');
+            background-size: cover; */
         }
         @keyframes fadeIn {
         from {
@@ -125,9 +125,12 @@
     </div>
     <div class="video-content">
       <div class="custom-text">
-          <br/>Let's start the start-ups!<br/>
+          {{-- <br/>Let's start the start-ups!<br/> --}}
+          <br/>Let's start the start ups!<br/>
       </div>
     </div>
+
+    
     
     <main class="main-content  mt-0">
       <section>
@@ -166,10 +169,10 @@
                 </div>
               </div>
               <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
-                <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image:url('peakpx.jpg'); background-size: cover;">
+                <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image:url('homepage_photo.jpg'); background-size: cover;">
                   <span class="mask bg-gradient-primary opacity-6"></span>
                   <h4 class="mt-5 text-black font-weight-bolder position-relative">"Welcome to BeginBloc!"</h4>
-                  <p class="text-black position-relative">Let's do business with ideas. Join us to see what we have for you.</p>
+                  <p class="text-black position-relative">Join us to see how your friends can be there for you.</p>
                 </div>
               </div>
               
@@ -197,5 +200,6 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="../assets/js/argon-dashboard.min.js?v=2.0.4"></script>
+<a href="C:\xampp\htdocs\BeginBloc\for_web\index.html">link</a>
 @endSection
 

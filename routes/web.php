@@ -66,5 +66,15 @@ Route::get('/posts/show', 'App\Http\Controllers\PostController@show')->name('pos
 Route::post('/posts', 'App\Http\Controllers\PostController@store')->name('posts.store');
 
 // routes/web.php
-Route::resource('posts', 'App\Http\Controllers\PostController');
+// Route::resource('posts', 'App\Http\Controllers\PostController');
 
+// create post will not work if the below option is working
+Route::resource('posts','App\Http\Controllers\PostsController');
+
+Auth::routes();
+
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
+
+Route::get('/api/client', function () {
+    return view('api.client');
+});

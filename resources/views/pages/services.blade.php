@@ -5,19 +5,9 @@
     <style>
         /* public/css/styles.css */
         body {
-            margin-top: 150px;
+            margin: 150px 200px 0;
             font-family: 'Raleway', sans-serif; /* Apply the desired font */
         }
-
-        h1 {
-        /* Add specific styles for the h1 tag if needed */
-        }
-
-        .list-group-item {
-        /* Add specific styles for list items if needed */
-        }
-
-        /* Add other styles as needed */
 
     </style>
     <div>

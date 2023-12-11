@@ -24,13 +24,19 @@
     <hr>
     <small>Written on {{$post->created_at}} by {{ optional($post->user)->name ?? 'Unknown User' }}</small>
     <hr>
-    <a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a>
 
-    <form action="{{ action('App\Http\Controllers\PostsController@destroy', $post->id) }}" method="post" class="pull-right">
-        <?php echo csrf_field(); ?>
-        <?php echo method_field('DELETE'); ?>
+    @if (!Auth::guest())
+        @if (Auth::user()->id == $post->user_id)
+            <a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a>
+
+            <form action="{{ action('App\Http\Controllers\PostsController@destroy', $post->id) }}" method="post" class="pull-right">
+                <?php echo csrf_field(); ?>
+                <?php echo method_field('DELETE'); ?>
     
-        <input type="submit" value="Delete" class="btn btn-danger">
-    </form>
+                <input type="submit" value="Delete" class="btn btn-danger">
+            </form>
+        @endif  
+    @endif
+    
 </div>
 @endsection

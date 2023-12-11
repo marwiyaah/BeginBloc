@@ -98,7 +98,7 @@
     }
 
 </style>
-    <div style="width: 70%; max-width: 900px; margin: 200px 100px 0 200px; padding: 20px; box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.05); border-radius: 15px; background-color: rgba(200.81, 200.81, 200.81, 0.62);">
+    <div style="width: 70%; max-width: 900px; margin: 200px 100px 0 100px; padding: 20px; box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.05); border-radius: 15px; background-color: rgba(200.81, 200.81, 200.81, 0.62);">
         <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
             
             <div style="color: #4E4F51; font-size: 24px; font-family: Raleway; font-weight: 700; letter-spacing: 0.50px;">Create Post</div>
@@ -109,7 +109,7 @@
                 </div>
             @endif
 
-            <form style=" width: 100%; display: flex; flex-direction: column; gap: 15px; margin-top: 120px;" action="{{ action('App\Http\Controllers\PostsController@store') }}" method="post">
+            <form style=" width: 100%; display: flex; flex-direction: column; gap: 15px;" action="{{ action('App\Http\Controllers\PostsController@store') }}" method="post">
                 @csrf
 
                 <label style="width: 100%; color: #4E4F51; font-size: 16px; font-family: Raleway; font-weight: 700; letter-spacing: 0.50px; border-radius: 8px;">Title</label>

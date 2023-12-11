@@ -78,3 +78,5 @@ Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'inde
 Route::get('/api/client', function () {
     return view('api.client');
 });
+
+Route::get('/search', 'App\Http\Controllers\PostsController@search');

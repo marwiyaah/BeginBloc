@@ -8,6 +8,17 @@ use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index','show']]);
+    } // this will make sure that you have to be logged in to see the posts page. If you are not logged in, it will redirect you to the login page.
+
     /**
      * Display a listing of the resource.
      *
@@ -86,6 +97,10 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+        // check for correct user
+        if(auth()->user()->id !== $post->user_id){
+            return redirect('/posts')->with('error', 'Unauthorized Page');
+        } 
         return view('posts.edit')->with('post', $post);
     }
 
@@ -103,7 +118,7 @@ class PostsController extends Controller
           'body' => 'required'
         ]);
 
-        // creae post
+        // create post
         $post = Post::find($id);
         $post->title = $request->input('title');
         $post->body = $request->input('body');
@@ -127,4 +142,17 @@ class PostsController extends Controller
     
         return redirect('/posts')->with('success', 'Post deleted!');
     }
+
+    // public function search(Request $request)
+    // {
+    //     $query = $request->input('query');
+
+    //     // Perform search using Eloquent or SQL as needed
+    //     $posts = Post::where('title', 'like', '%' . $query . '%')
+    //                   ->orWhere('body', 'like', '%' . $query . '%')
+    //                   ->orderBy('created_at', 'desc')
+    //                   ->paginate(10);
+
+    //     return view('posts.index')->with('posts', $posts);
+    // }
 }

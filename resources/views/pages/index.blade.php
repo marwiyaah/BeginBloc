@@ -53,7 +53,7 @@
         }
     }
     .custom-text {
-        margin-top: 100px;
+        margin-top: 20px;
         color: rgba(0, 0, 0, 0.20);
         font-size: 60px;
         font-weight: 700;
@@ -140,12 +140,12 @@
               <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto" style="width: 70%; max-width: 400px; margin: 20px 0 0 0; padding: 20px; box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.05); border-radius: 20px; background-color: rgba(200.81, 200.81, 200.81, 0.62);">
                 <div class="card card-plain" style="display: flex; flex-direction: column; align-items: center; gap: 20px; background-color: transparent; border: none;">
                   <div class="card-header pb-0 text-start" >
-                    <h4 class="font-weight-bolder" style="color: #4E4F51; font-size: 24px; font-family: Raleway; font-weight: 700; letter-spacing: 0.50px;">Sign In</h4>
-                    <p class="mb-0">Enter your email and password to sign in</p>
+                    <h4 class="font-weight-bolder" style="color: #4E4F51; font-size: 24px; font-family: Raleway; font-weight: 700; letter-spacing: 0.50px;">Get in with your work</h4>
+                    {{-- <p class="mb-0">Enter your email and password to sign in</p> --}}
                   </div>
                   <div class="card-body">
                     <form role="form">
-                      <div class="mb-3" style="align-items: left">
+                      {{-- <div class="mb-3" style="align-items: left">
                         <input type="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email">
                       </div>
                       <div class="mb-3">
@@ -154,16 +154,16 @@
                       <div class="form-check form-switch">
                         <input class="form-check-input" type="checkbox" id="rememberMe">
                         <label class="form-check-label" for="rememberMe">Remember me</label>
-                      </div>
+                      </div> --}}
                       <div class="text-center">
-                        <button type="button" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Sign in</button>
+                        <a href="/login" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Login</a>
                       </div>
                     </form>
                   </div>
                   <div class="card-footer text-center pt-0 px-lg-2 px-1">
                     <p class="mb-4 text-sm mx-auto">
                       Don't have an account?
-                      <a href="/register" class="text-primary text-gradient font-weight-bold">Sign up</a>
+                      <a href="/register" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Sign up</a>
                     </p>
                   </div>
                 </div>

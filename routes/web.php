@@ -64,6 +64,7 @@ Route::get('/deleteAcc', 'App\Http\Controllers\PagesController@deleteAcc');
 Route::get('/posts/create','App\Http\Controllers\PostController@create')->name('posts.create');
 Route::get('/posts/show', 'App\Http\Controllers\PostController@show')->name('posts.show');
 Route::post('/posts', 'App\Http\Controllers\PostController@store')->name('posts.store');
+// Route::get('posts/{post}/edit', 'App\Http\Controllers\PostsController@edit')->name('posts.edit');
 
 // routes/web.php
 // Route::resource('posts', 'App\Http\Controllers\PostController');
@@ -80,3 +81,6 @@ Route::get('/api/client', function () {
 });
 
 Route::get('/search', 'App\Http\Controllers\PostsController@search');
+
+
+

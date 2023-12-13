@@ -109,7 +109,7 @@
                 </div>
             @endif
 
-            <form style=" width: 100%; display: flex; flex-direction: column; gap: 15px;" action="{{ action('App\Http\Controllers\PostsController@store') }}" method="post">
+            <form style=" width: 100%; display: flex; flex-direction: column; gap: 15px;" action="{{ action('App\Http\Controllers\PostsController@store') }}" method="post", enctype="multipart/form-data">
                 @csrf
 
                 <label style="width: 100%; color: #4E4F51; font-size: 16px; font-family: Raleway; font-weight: 700; letter-spacing: 0.50px; border-radius: 8px;">Title</label>
@@ -120,6 +120,11 @@
 
                 <label style="width: 100%; color: #4E4F51; font-size: 16px; font-family: Raleway; font-weight: 700; letter-spacing: 0.50px; border-radius: 8px;">Body</label>
                 <textarea name="body" style="width: 100%; height: 150px; background: white; border: 1px solid #BEBEBE; border-radius: 8px; padding: 5px;" id="article-ckeditor" placeholder="Body" required></textarea>
+
+                <div class="form-group">
+                    {{-- <form action=""></form> --}}
+                    <input type="file" name="cover_image">
+                </div>
 
                 <button type="submit" style="width: 100%; height: 40px; background: #2A6877; border: none; border-radius: 8px; color: #F0F1F3; font-size: 18px; font-family: DM Sans; font-weight: 500; letter-spacing: 0.50px; cursor: pointer;">Submit</button>
             </form>

@@ -76,6 +76,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap">
 
 @section('content')
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <style>
     /* public/css/styles.css */
     body {
@@ -92,6 +93,7 @@
     @endif
 
     <h1>All Posts</h1>
+    <a href="" class="btn btn-success my-3" data-toggle="modal" data-target="#addModal">Add product</a>
 
     {{-- Display create post form --}}
     <div style="margin-bottom: 200 px 0 20px 0;">
@@ -100,16 +102,56 @@
 
     @if(count($posts) > 0)
         @foreach($posts as $post)
-            <div class="well">
-                <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
-                <small>
-                    Written on {{$post->created_at}} by {{ optional($post->user)->name ?? 'Unknown User' }}
-                </small>
+            <div class="well" id="post-container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4">
+                        <img src="/storage/cover_images/{{$post->cover_image}}" alt="" style="width: 100%">
+                    </div>
+                    <div class="col-md-4 col-sm-8">
+                        <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
+                        <small>
+                            Written on {{$post->created_at}} by {{ optional($post->user)->name ?? 'Unknown User' }}
+                        </small>
+                    </div>
+                </div>
             </div>
+
+            
         @endforeach
-        {{$posts->links()}}
+        <div id="pagination-links">
+            {{$posts->links()}}
+        </div>
     @else
         <p>No posts found.</p>
     @endif
 </div>
+@include('inc.ajax')
+@include('inc.modal')
+<script>
+    $(document).ready(function () {
+        // Initial load of posts
+        loadPosts();
+
+        // Handle pagination link clicks
+        $(document).on('click', '.pagination a', function (e) {
+            e.preventDefault();
+            let page = $(this).attr('href').split('page=')[1];
+            loadPosts(page);
+        });
+
+        function loadPosts(page = 1) {
+    $.ajax({
+        url: "{{ route('pagination.paginate-data') }}?page=" + page,
+        success: function (data) {
+            $('#post-container').html(data);
+            $('#pagination-links').html($('.pagination').html());
+        },
+        error: function (error) {
+            console.error('Error:', error);
+        }
+    });
+}
+
+    });
+</script>
 @endsection

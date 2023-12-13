@@ -65,6 +65,7 @@ Route::get('/posts/create','App\Http\Controllers\PostController@create')->name('
 Route::get('/posts/show', 'App\Http\Controllers\PostController@show')->name('posts.show');
 Route::post('/posts', 'App\Http\Controllers\PostController@store')->name('posts.store');
 // Route::get('posts/{post}/edit', 'App\Http\Controllers\PostsController@edit')->name('posts.edit');
+Route::get('posts/{post}/update', 'App\Http\Controllers\PostsController@update')->name('posts.edit');
 
 // routes/web.php
 // Route::resource('posts', 'App\Http\Controllers\PostController');
@@ -81,6 +82,7 @@ Route::get('/api/client', function () {
 });
 
 Route::get('/search', 'App\Http\Controllers\PostsController@search');
+Route::get('/pagination/paginate-data', [App\Http\Controllers\PostsController::class, 'paginateData'])->name('pagination.paginate-data');
 
 
 

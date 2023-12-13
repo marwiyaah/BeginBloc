@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 // for sql
 // use Illuminate\Support\Facades\DB;
 
@@ -39,7 +40,7 @@ class PostsController extends Controller
 
         // PAGINATION: the limit you give in the (), it will show that much posts in the page.
         // suppose, paginate(2). If we get any 3rd post, it will give us a link to go to the next page.
-        $post = Post::orderBy('created_at', 'desc')->paginate(10);
+        $post = Post::orderBy('created_at', 'desc')->paginate(1);
         return view('posts.index')->with('posts', $post);
     }
 
@@ -61,16 +62,36 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+        
         $this->validate($request,
          ['title' => 'required',
-          'body' => 'required'
+          'body' => 'required',
+          // validation for cover_image
+          'cover_image' => 'image|mimes:jpeg,png,jpg,gif|nullable|max:1999'
         ]);
 
+
+        // Handle File Upload
+        if ($request -> hasFile('cover_image')){
+            // get the fileName with extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            // get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // get just extension
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+            //filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension; 
+            // upload image
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
         // creae post
         $post = new Post;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
         $post->user_id = auth()->user()->id;
+        $post->cover_image = $fileNameToStore;
         $post->save();
 
         return redirect('/posts')->with('success', 'Post Created Successfully');
@@ -113,21 +134,60 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,
-         ['title' => 'required',
-          'body' => 'required'
-        ]);
 
+        $this->validate($request,[
+                'title' => 'required',
+                'body' => 'required',
+                // validation for cover_image
+                // 'cover_image' => 'image|mimes:jpeg,png,jpg,gif|nullable|max:1999'
+            ]);
+
+        // Handle File Upload
+        if ($request -> hasFile('cover_image')){
+            // get the fileName with extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            // get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // get just extension
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+            //filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension; 
+            // upload image
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+        }
         // create post
         $post = Post::find($id);
         $post->title = $request->input('title');
-        $post->body = $request->input('body');
-        
+        $post->body  = $request->input('body');
+        if ($request -> hasFile('cover_image')){
+            $post->cover_image = $fileNameToStore;
+        }
         $post->save();
 
-        return redirect('/posts')->with('success', 'Post updated!');
-    
+        return redirect('/posts')->with('success', 'Post Updated Successfully');
+    // $post = Post::find($id);
+
+    // // check for correct user
+    // if (auth()->user()->id !== $post->user_id) {
+    //     return redirect('/posts')->with('error', 'Unauthorized Page');
+    // }
+
+    // // Validate the form data
+    // $request->validate([
+    //     'title' => 'required',
+    //     'body' => 'required',
+    // ]);
+
+    // // Update the post
+    // $post->update([
+    //     'title' => $request->input('title'),
+    //     'body' => $request->input('body'),
+    // ]);
+
+    // return redirect('/posts')->with('success', 'Post updated!');
+
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -136,12 +196,30 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        $post = Post::find($id);
-        $post->delete();
-    
-        return redirect('/posts')->with('success', 'Post deleted!');
+{
+    $post = Post::find($id);
+
+    // check for correct user
+    if (auth()->user()->id !== $post->user_id) {
+        return redirect('/posts')->with('error', 'Unauthorized Page');
     }
+
+    if ($post->cover_image != 'noimage.jpg') {
+        // Delete the image
+        Storage::delete('public/cover_images/' . $post->cover_image);
+    }
+
+    // Delete the post
+    $post->delete();
+
+    return redirect('/posts')->with('success', 'Post deleted!');
+}
+
+public function paginateData(Request $request){
+    $posts = Post::orderBy('created_at', 'desc')->paginate(1); // Adjust the number of items per page as needed
+    return view('inc.pagination_posts', compact('posts'));
+}
+
 
     // public function search(Request $request)
     // {
@@ -155,4 +233,6 @@ class PostsController extends Controller
 
     //     return view('posts.index')->with('posts', $posts);
     // }
+
+    
 }

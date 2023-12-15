@@ -115,6 +115,9 @@
                 <label style="width: 100%; color: #4E4F51; font-size: 16px; font-family: Raleway; font-weight: 700; letter-spacing: 0.50px; border-radius: 8px;">Title</label>
                 <input type="text" style="width: 100%; height: 34px; background: #FFFBFB; border: 1px solid #BEBEBE; border-radius: 8px; padding: 5px;" name="title" id="title" placeholder="Title" required>
 
+                <label style="width: 100%; color: #4E4F51; font-size: 16px; font-family: Raleway; font-weight: 700; letter-spacing: 0.50px; border-radius: 8px;">Amount</label>
+                <input type="text" style="width: 100%; height: 34px; background: #FFFBFB; border: 1px solid #BEBEBE; border-radius: 8px; padding: 5px;" name="amount" id="amount" placeholder="Amount" required>
+
                 {{-- <label style="width: 100%; color: #4E4F51; font-size: 16px; font-family: Raleway; font-weight: 700; letter-spacing: 0.50px; border-radius: 8px;">Body</label>
                 <textarea style="width: 100%; height: 150px; background: white; border: 1px solid #BEBEBE; border-radius: 8px; padding: 5px;" name="body" id="article-ckeditor" placeholder="Body" required></textarea> --}}
 

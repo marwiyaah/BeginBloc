@@ -28,6 +28,9 @@
             <label style="width: 100%; color: #4E4F51; font-size: 16px; font-family: Raleway; font-weight: 700; letter-spacing: 0.50px; border-radius: 8px; margin-top: -10px;">Title</label>
             <input type="text" style="width: 100%; height: 34px; background: #FFFBFB; border: 1px solid #BEBEBE; border-radius: 8px; padding: 5px;" name="title" id="title" value="{{$post->title}}" placeholder="Title" required>
 
+            <label style="width: 100%; color: #4E4F51; font-size: 16px; font-family: Raleway; font-weight: 700; letter-spacing: 0.50px; border-radius: 8px; margin-top: -10px;">Amount</label>
+            <input type="text" style="width: 100%; height: 34px; background: #FFFBFB; border: 1px solid #BEBEBE; border-radius: 8px; padding: 5px;" name="amount" id="amount" value="{{$post->amount}}" placeholder="Amount" required>
+
             <label style="width: 100%; color: #4E4F51; font-size: 16px; font-family: Raleway; font-weight: 700; letter-spacing: 0.50px; border-radius: 8px;">Body</label>
             <textarea name="body" id="article-ckeditor" style="width: 100%; height: 150px; background: #FFFBFB; border: 1px solid #BEBEBE; border-radius: 8px; padding: 5px;" placeholder="Body Text">{{ $post->body }}</textarea>
 

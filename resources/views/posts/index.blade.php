@@ -83,6 +83,15 @@
         margin: -50px 200px 0;
         font-family: 'Raleway', sans-serif; /* Apply the desired font */
     }
+
+    .post-container img {
+        width: 100%; /* Adjust the width of the images to fill the container */
+        height: auto; /* Maintain the aspect ratio */
+    }
+
+    .post-container h3 {
+        margin-bottom: 0; /* Remove the default bottom margin for h3 */
+    }
 </style>
 
 <div style="width: 70%; max-width: 600px; margin-top: 200px;">
@@ -96,27 +105,27 @@
     <a href="" class="btn btn-success my-3" data-toggle="modal" data-target="#addModal">Add product</a>
 
     {{-- Display create post form --}}
-    <div style="margin-bottom: 200 px 0 20px 0;">
+    <div style="margin-bottom: 200px 0 20px 0;">
         {{-- @include('posts.create') --}}
     </div>
 
     @if(count($posts) > 0)
         @foreach($posts as $post)
-            <div class="well" id="post-container">
-                <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                        <img src="/storage/cover_images/{{$post->cover_image}}" alt="" style="width: 100%">
+            @if($post->new_amount > 0)
+                    <div class="well post-container">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4">
+                                <img src="/storage/cover_images/{{$post->cover_image}}" alt="">
+                            </div>
+                            <div class="col-md-4 col-sm-8">
+                                <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
+                                <small>
+                                    Written on {{$post->created_at}} by {{ optional($post->user)->name ?? 'Unknown User' }}
+                                </small>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-4 col-sm-8">
-                        <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
-                        <small>
-                            Written on {{$post->created_at}} by {{ optional($post->user)->name ?? 'Unknown User' }}
-                        </small>
-                    </div>
-                </div>
-            </div>
-
-            
+            @endif
         @endforeach
         <div id="pagination-links">
             {{$posts->links()}}
@@ -140,18 +149,17 @@
         });
 
         function loadPosts(page = 1) {
-    $.ajax({
-        url: "{{ route('pagination.paginate-data') }}?page=" + page,
-        success: function (data) {
-            $('#post-container').html(data);
-            $('#pagination-links').html($('.pagination').html());
-        },
-        error: function (error) {
-            console.error('Error:', error);
+            $.ajax({
+                url: "{{ route('pagination.paginate-data') }}?page=" + page,
+                success: function (data) {
+                    $('.post-container').html(data);
+                    $('#pagination-links').html($('.pagination').html());
+                },
+                error: function (error) {
+                    console.error('Error:', error);
+                }
+            });
         }
-    });
-}
-
     });
 </script>
 @endsection

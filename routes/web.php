@@ -66,6 +66,7 @@ Route::get('/posts/show', 'App\Http\Controllers\PostController@show')->name('pos
 Route::post('/posts', 'App\Http\Controllers\PostController@store')->name('posts.store');
 // Route::get('posts/{post}/edit', 'App\Http\Controllers\PostsController@edit')->name('posts.edit');
 Route::get('posts/{post}/update', 'App\Http\Controllers\PostsController@update')->name('posts.edit');
+Route::get('posts/{post}/contribute', 'App\Http\Controllers\PostsController@contribute')->name('posts.contribute');
 
 // routes/web.php
 // Route::resource('posts', 'App\Http\Controllers\PostController');
@@ -83,6 +84,8 @@ Route::get('/api/client', function () {
 
 Route::get('/search', 'App\Http\Controllers\PostsController@search');
 Route::get('/pagination/paginate-data', [App\Http\Controllers\PostsController::class, 'paginateData'])->name('pagination.paginate-data');
+Route::post('/contribute/{id}/{percentage}', 'App\Http\Controllers\PostsController@contribute')->name('contribute');
+Route::post('/submit-contribution', 'App\Http\Controllers\PostsController@submitContribution');
 
 
 

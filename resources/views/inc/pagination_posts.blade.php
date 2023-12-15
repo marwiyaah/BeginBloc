@@ -1,9 +1,8 @@
 
 <!-- pagination_posts.blade.php -->
-
 @if(count($posts) > 0)
     @foreach($posts as $post)
-        <div class="row">
+        <div class="row mb-4"> <!-- Added mb-4 for margin-bottom -->
             <div class="col-md-4 col-sm-4">
                 <img src="/storage/cover_images/{{$post->cover_image}}" alt="" style="width: 100%">
             </div>

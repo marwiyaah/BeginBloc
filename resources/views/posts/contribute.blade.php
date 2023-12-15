@@ -138,30 +138,61 @@
         sessionStorage.setItem('selectedPercentage', percentage);
     }
 
-    function submitContribution() {
-        var postID = {{ $post->id }};
-        var selectedPercentage = document.getElementById('selectedPercentage').value;
+//     function submitContribution() {
+//     var postID = {{ $post->id }};
+//     var selectedPercentage = document.getElementById('selectedPercentage').value;
 
-        // Perform AJAX request to submit contribution
-        $.ajax({
-            type: 'POST',
-            url: '/submit-contribution',
-            data: {
-                post_id: postID,
-                selected_percentage: selectedPercentage,
-                _token: '{{ csrf_token() }}'
-            },
-            success: function (response) {
-                // Handle the response, e.g., show a success message
-                alert('Contribution submitted successfully!');
-                // Optionally, you can redirect the user to another page or perform other actions
-            },
-            error: function (error) {
-                // Handle the error, e.g., show an error message
-                alert('Error submitting contribution. Please try again.');
-            }
-        });
-    }
+//     // Perform AJAX request to submit contribution
+//     $.ajax({
+//         type: 'POST',
+//         url: '/submit-contribution',
+//         data: {
+//             post_id: postID,
+//             selected_percentage: selectedPercentage,
+//             _token: '{{ csrf_token() }}'
+//         },
+//         success: function (response) {
+//             // Handle the response, e.g., show a success message
+//             alert('Contribution submitted successfully!');
+
+//             // Reload the page and navigate to the show page of the post
+//             window.location.href = '/posts/{{ $post->id }}';
+//         },
+//         error: function (error) {
+//             // Handle the error, e.g., show an error message
+//             alert('Error submitting contribution. Please try again.');
+//         }
+//     });
+// }
+function submitContribution() {
+    var postID = {{ $post->id }};
+    var selectedPercentage = document.getElementById('selectedPercentage').value;
+
+    // Perform AJAX request to submit contribution
+    $.ajax({
+        type: 'POST',
+        url: '/submit-contribution',
+        data: {
+            post_id: postID,
+            selected_percentage: selectedPercentage,
+            _token: '{{ csrf_token() }}'
+        },
+        success: function (response) {
+            // Handle the response, e.g., show a success message
+            alert('Contribution submitted successfully!');
+
+            // Optionally, you can redirect the user to another page or perform other actions
+            // In this case, redirect to the show page of the post
+            window.location.href = '/posts/{{ $post->id }}';
+        },
+        error: function (error) {
+            // Handle the error, e.g., show an error message
+            alert('Error submitting contribution. Please try again.');
+        }
+    });
+}
+
+
 
     // Set initial values from session storage
     var initialCalculatedAmount = sessionStorage.getItem('calculatedAmount');

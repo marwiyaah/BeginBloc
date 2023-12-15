@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Post;
+use App\Models\Contribution;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 // for sql
@@ -198,6 +199,15 @@ class PostsController extends Controller
             
         }
 
+        // to see the response page
+        public function contributions($postId)
+        {
+            $post = Post::find($postId);
+            return view('posts.responses', ['post' => $post]);
+        }
+
+
+        // PostsController.php
 
         public function submitContribution(Request $request)
         {
@@ -210,11 +220,18 @@ class PostsController extends Controller
             $post->new_amount -= $amountToDeduct;
             $post->save();
         
-            // Optionally, you can store the contribution details in the database or perform other actions
+            // Save contribution details to the database
+            $contribution = new Contribution();
+            $contribution->post_id = $postID;
+            $contribution->user_id = auth()->user()->id;
+            $contribution->amount = $amountToDeduct;
+            $contribution->save();
         
             // Return a response (you can customize this based on your needs)
             return response()->json(['message' => 'Contribution submitted successfully']);
         }
+
+
         
 
 

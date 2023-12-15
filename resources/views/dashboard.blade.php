@@ -123,7 +123,9 @@
                                             </form>
                                         </td>
                                         <td>
-                                            <a href="#" class="btn btn-success" style="background-color: rgb(16, 73, 148); width: 120px;"><i class="las la-bell"></i> Responses</a>
+                                            <a href="{{ url('/contributions/' . $post->id) }}" class="btn btn-success" style="background-color: rgb(16, 73, 148); width: 120px;">
+                                                <i class="las la-bell"></i> Responses ({{ $post->contributions->count() }})
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach

@@ -86,6 +86,6 @@ Route::get('/search', 'App\Http\Controllers\PostsController@search');
 Route::get('/pagination/paginate-data', [App\Http\Controllers\PostsController::class, 'paginateData'])->name('pagination.paginate-data');
 Route::post('/contribute/{id}/{percentage}', 'App\Http\Controllers\PostsController@contribute')->name('contribute');
 Route::post('/submit-contribution', 'App\Http\Controllers\PostsController@submitContribution');
-
+Route::get('/contributions/{postId}', 'App\Http\Controllers\PostsController@contributions');
 
 

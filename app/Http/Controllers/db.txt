@@ -1,0 +1,33 @@
+$ php artisan tinker
+Psy Shell v0.11.22 (PHP 8.0.28 — cli) by JustiPsy Shell v0.11.22 (PHP 8.0.28 — cli) by Justi
+n Hileman
+> App\Post::count()
+
+   Error  Class "App\Post" not found.
+
+> App\Models\Post::count()
+= 0
+
+> $post = new App\Models\Post();
+= App\Models\Post {#7242}
+
+> $post->title = 'Post 1';
+= "Post 1"
+
+> $post->body = 'the body';
+= "the body"
+
+> $post->save();
+= true
+
+> $post = new App\Models\Post();
+= App\Models\Post {#7243}
+
+> $post->title = 'Post 2';
+= "Post 2"
+
+> $post->body = 'This is the body of post2';
+= "This is the body of post2"
+
+> $post->save();
+= true

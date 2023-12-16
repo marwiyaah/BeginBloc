@@ -1,0 +1,12 @@
+site_name: Documentation for Software
+theme: readthedocs
+nav:
+    - Home: index.md
+    - About: about.md
+    - Software: software.md
+    - Contact: contact.md
+    - License: license.md
+    - Privacy: privacy.md
+    - Terms: terms.md
+    - Sitemap: sitemap.md
+    - Search: null

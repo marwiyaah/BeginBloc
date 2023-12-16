@@ -29,8 +29,9 @@
     }
 
     th {
-        background-color: #2A6877;
+        background-color: #b84dce;
         color: #fff;
+        border-radius: 5px;
     }
 
     tr:nth-child(even) {
@@ -42,7 +43,7 @@
     }
 </style>
 
-<div style="width: 70%; max-width: 900px; margin: 200px 100px 0 100px; padding: 20px; box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.05); border-radius: 15px; background-color: rgba(200.81, 200.81, 200.81, 0.62);">
+<div style="width: 70%; max-width: 900px; margin: 200px 100px 0 100px; padding: 20px; box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.05); border-radius: 15px; background-color: rgba(240, 217, 155, 0.62);">
     <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
         
         <div style="color: #4E4F51; font-size: 24px; font-family: Raleway; font-weight: 700; letter-spacing: 0.50px;">

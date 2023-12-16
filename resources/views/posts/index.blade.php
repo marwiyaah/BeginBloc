@@ -1,100 +1,43 @@
-{{-- @extends('layouts.app')
-
-@section('content')
-<style>
-    /* public/css/styles.css */
-    body {
-        margin: -50px 200px 0;
-        font-family: 'Raleway', sans-serif; /* Apply the desired font */
-    }
-</style>
-
-<div style="width: 70%; max-width: 600px; margin-top: 200px;">
-    <!-- Search Bar -->
-    <div style="margin-bottom: 20px;">
-        <input type="text" id="searchInput" placeholder="Search posts...">
-    </div>
-
-    <!-- Search Results Container -->
-    <div id="searchResults"></div>
-
-    @if(session('error'))
-        <!-- Display Session Message -->
-        <div style="width: 100%; padding: 10px; background-color: {{ session('status') === 'success' ? '#2A6877' : '#C64F36' }}; color: #F0F1F3; font-size: 18px; text-align: center; border-radius: 8px; margin-top: 50px;">
-            {{ session('error') }}
-        </div>
-    @endif
-
-    <h1>All Posts</h1>
-
-    {{-- Display create post form --}}
-    {{-- <div style="margin-bottom: 200px;">
-        {{-- @include('posts.create') --}}
-    {{-- </div>
-
-    @if(count($posts) > 0)
-        @foreach($posts as $post)
-            <div class="well">
-                <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
-                <small>
-                    Written on {{$post->created_at}} by {{ optional($post->user)->name ?? 'Unknown User' }}
-                </small>
-            </div>
-        @endforeach
-        {{$posts->links()}}
-    @else
-        <p>No posts found.</p>
-    @endif
-</div>
-
-<!-- Ajax Script for Search -->
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script>
-    $(document).ready(function() {
-        // Trigger search on input change
-        $('#searchInput').on('input', function() {
-            var query = $(this).val();
-
-            // Perform Ajax request
-            $.ajax({
-                url: '/search', // Update this with your actual search route
-                method: 'GET',
-                data: {query: query},
-                success: function(response) {
-                    // Update the search results container
-                    $('#searchResults').html(response);
-                }
-            });
-        });
-    });
-</script>
-
-@endsection --}}
-
-
 @extends('layouts.app')
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap">
 
 @section('content')
-<meta name="csrf-token" content="{{ csrf_token() }}">
-<style>
-    /* public/css/styles.css */
-    body {
-        margin: -50px 200px 0;
-        font-family: 'Raleway', sans-serif; /* Apply the desired font */
-    }
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    .post-container img {
-        width: 100%; /* Adjust the width of the images to fill the container */
-        height: auto; /* Maintain the aspect ratio */
-    }
+    <style>
+        /* public/css/styles.css */
+        body {
+            margin: -50px 200px 0;
+            font-family: 'Raleway', sans-serif; /* Apply the desired font */
+        }
 
-    .post-container h3 {
-        margin-bottom: 0; /* Remove the default bottom margin for h3 */
-    }
-</style>
+        .post-container img {
+            width: 100%; /* Adjust the width of the images to fill the container */
+            height: auto; /* Maintain the aspect ratio */
+        }
 
-<div style="width: 70%; max-width: 600px; margin-top: 200px;">
+        .post-container h3 {
+            margin-bottom: 0; /* Remove the default bottom margin for h3 */
+        }
+
+        /* Add spacing to the post container */
+        .post-container {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd; /* Add a border for separation */
+            border-radius: 8px;
+            width: 1000px;
+        }
+
+        /* Add spacing to the top of the page */
+        h1 {
+            margin-top: 20px;
+        }
+        
+    </style>
+
+    <div style="width: 70%; max-width: 600px; margin-top: 200px;">
     @if(session('error'))
         <div style="width: 100%; padding: 10px; background-color: {{ session('status') === 'success' ? '#2A6877' : '#C64F36' }}; color: #F0F1F3; font-size: 18px; text-align: center; border-radius: 8px; margin-top: 50px;">
             {{ session('error') }}
@@ -102,7 +45,11 @@
     @endif
 
     <h1>All Posts</h1>
-    <a href="" class="btn btn-success my-3" data-toggle="modal" data-target="#addModal">Add product</a>
+
+    @if (!Auth::guest())
+    <a href="/posts/create" class="btn btn-success my-3" data-toggle="modal" data-target="#addModal">Create Post</a>
+    @endif
+    
 
     {{-- Display create post form --}}
     <div style="margin-bottom: 200px 0 20px 0;">
@@ -114,7 +61,7 @@
             @if($post->new_amount > 0)
                     <div class="well post-container">
                         <div class="row">
-                            <div class="col-md-4 col-sm-4">
+                            <div class="col-md-4 col-sm-4"  style="width: 100px; height: 100px;">
                                 <img src="/storage/cover_images/{{$post->cover_image}}" alt="">
                             </div>
                             <div class="col-md-4 col-sm-8">
@@ -122,6 +69,9 @@
                                 <small>
                                     Written on {{$post->created_at}} by {{ optional($post->user)->name ?? 'Unknown User' }}
                                 </small>
+                            </div>
+                            <div class="col-md-4 col-sm-8">
+                                <small>Amount needed for deployment: <span style="color: #b87a40;">${!! $post->new_amount !!}</span></small>
                             </div>
                         </div>
                     </div>

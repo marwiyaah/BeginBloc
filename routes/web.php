@@ -31,6 +31,7 @@ Route::get('/users/{name}/{id}', function ($name,$id) {
 Route::get('/', 'App\Http\Controllers\PagesController@index');
 Route::get('/about', 'App\Http\Controllers\PagesController@about');
 Route::get('/services', 'App\Http\Controllers\PagesController@services');
+Route::get('/faq', 'App\Http\Controllers\PagesController@faq');
 
 // dashboard for the profile homepage after login
 Route::get('/dashboard', 'App\Http\Controllers\PagesController@dashboard');

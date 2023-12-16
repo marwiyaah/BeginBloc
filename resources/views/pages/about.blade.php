@@ -21,6 +21,12 @@
 
 </style>
 
-    <h1>{{ $title }}</h1>
-    <p>This is the about page.</p>
+    <h1 style="margin: 0 0 -20px 300px;">{{ $title }}</h1>
+
+    <div style="width: 70%; max-width: 900px; margin: 50px 100px 0 100px; padding: 20px; box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.05); border-radius: 15px; background-color: rgba(134, 219, 255, 0.62);">
+        <p>This is the project from team ABC of Software Engineering Laboratory.</p>
+        <p>Developed By: Maria Akter Rimi</p>
+        <p>ID: 011201428</p>
+    </div>
+    
 @endsection

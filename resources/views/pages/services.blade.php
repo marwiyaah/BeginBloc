@@ -16,7 +16,7 @@
         @if (count($services) > 0)
             <ul class="list-group">
                 @foreach ($services as $service)
-                    <li class="list-group-item">{{$service}}</li>
+                    <li class="list-group-item"  style="background-color: rgb(230, 240, 226)">{{$service}}</li>
                 @endforeach
             </ul>
         @endif

@@ -57,6 +57,11 @@
         letter-spacing: 0.50px;
         word-wrap: break-word;
     }
+
+    .navbar-nav .nav-item.active a {
+        color: #007bff !important; /* Adjust the color as needed */
+        font-weight: bold; /* Optionally, make the text bold */
+    }
 </style>
 
   <nav class="navbar navbar-expand-lg blur border-radius-lg top-0 z-index-3 shadow fixed-top mt-4 start-0 end-0" id="navbar" style="width: 90%; margin-left: auto; margin-right: auto; border-radius: 20px; background: white">
@@ -79,11 +84,12 @@
                 <div class="collapse navbar-collapse" id="navigation">
                     <ul class="navbar-nav mx-auto d-flex align-items-center">
         <!-- ... (existing menu items) ... -->
-        <li class="nav-item">
-                                  <a class="nav-link d-flex align-items-center me-2 {{ Request::is('/') ? 'active text-primary' : '' }}" href="/">
-                                      <i class="fa fa-home opacity-6 text-dark me-1"></i> Home
-                                  </a>
-                              </li>
+                    <ul class="navbar-nav mx-auto d-flex align-items-center">
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex align-items-center me-2 {{ Request::is('/') ? 'active text-primary' : '' }}" href="{{ Auth::check() ? '/dashboard' : '/' }}">
+                                        <i class="fa fa-home opacity-6 text-dark me-1"></i> Home
+                                    </a>
+                                </li>
                       
                               <li class="nav-item">
                                   <a  href="/about" class="nav-link d-flex align-items-center me-2" aria-current="page" >
@@ -98,7 +104,7 @@
                               </li>
                       
                               <li class="nav-item">
-                                  <a  href="#" class="nav-link d-flex align-items-center me-2" aria-current="page" >
+                                  <a  href="/faq" class="nav-link d-flex align-items-center me-2" aria-current="page" >
                                       <i class="fa fa-info-circle opacity-6 text-dark me-1"></i> FAQs
                                   </a>
                               </li>
@@ -116,6 +122,8 @@
                                       <i class="fa fa-info-circle opacity-6 text-dark me-1"></i> Create post
                                   </a>
                               </li> --}}
+
+                    </ul>
     </ul>
 
     <ul class="navbar-nav ms-auto justify-content-end d-flex align-items-center">

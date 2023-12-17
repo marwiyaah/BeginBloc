@@ -62,6 +62,7 @@
                 <tr>
                     <th>Contributor ID</th>
                     <th>Contributor Name</th>
+                    <th>Contributor email</th>
                     <th>Amount Contributed</th>
                 </tr>
             </thead>
@@ -70,6 +71,7 @@
                     <tr>
                         <td>{{ $contribution->user_id }}</td>
                         <td>{{ $contribution->user->name }}</td>
+                        <td>{{ $contribution->user->email }}</td>
                         <td>${{ $contribution->amount }}</td>
                     </tr>
                 @endforeach

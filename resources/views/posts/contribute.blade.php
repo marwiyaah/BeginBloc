@@ -55,12 +55,27 @@
 .container > div {
     flex-basis: 48%; /* Adjust the width of the divs as needed */
 }
+/* Add these styles to the existing CSS */
+#contributeDiv {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70%; /* Adjust the width as needed */
+    max-width: 400px;
+    margin: 150px 100px 0 0; /* Adjust the margin as needed */
+    padding: 20px;
+    box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    background-color: rgba(200.81, 200.81, 200.81, 0.62);
+    
+}
+
 </style>
 
 <div class="container">
     <div style="width: 70%; max-width: 400px; margin: 50px 400px 0 0; padding: 20px; box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.05); border-radius: 15px; background-color: rgba(200.81, 200.81, 200.81, 0.62);">
         <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
-            <a href="/posts" class="btn btn-default">Go Back</a>
+            
             <div style="color: #4E4F51; font-size: 24px; font-family: Raleway; font-weight: 700; letter-spacing: 0.50px;">Start-up Overview</div>
                 
                 <h1>{{$post->title}}</h1>
@@ -79,7 +94,7 @@
                 </div>
         </div>
     </div>
-    <div style="float: right; width: 70%; max-width: 400px; margin: -800px 100px 0 500px; padding: 20px; box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.05); border-radius: 15px; background-color: rgba(200.81, 200.81, 200.81, 0.62);">
+    <div id="contributeDiv" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
         <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
             <div style="color: #4E4F51; font-size: 24px; font-family: Raleway; font-weight: 700; letter-spacing: 0.50px;">Contribute to this Project</div>
             @if(session('message'))
@@ -138,32 +153,7 @@
         sessionStorage.setItem('selectedPercentage', percentage);
     }
 
-//     function submitContribution() {
-//     var postID = {{ $post->id }};
-//     var selectedPercentage = document.getElementById('selectedPercentage').value;
 
-//     // Perform AJAX request to submit contribution
-//     $.ajax({
-//         type: 'POST',
-//         url: '/submit-contribution',
-//         data: {
-//             post_id: postID,
-//             selected_percentage: selectedPercentage,
-//             _token: '{{ csrf_token() }}'
-//         },
-//         success: function (response) {
-//             // Handle the response, e.g., show a success message
-//             alert('Contribution submitted successfully!');
-
-//             // Reload the page and navigate to the show page of the post
-//             window.location.href = '/posts/{{ $post->id }}';
-//         },
-//         error: function (error) {
-//             // Handle the error, e.g., show an error message
-//             alert('Error submitting contribution. Please try again.');
-//         }
-//     });
-// }
 function submitContribution() {
     var postID = {{ $post->id }};
     var selectedPercentage = document.getElementById('selectedPercentage').value;

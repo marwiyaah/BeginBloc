@@ -70,9 +70,10 @@
                                     Written on {{$post->created_at}} by {{ optional($post->user)->name ?? 'Unknown User' }}
                                 </small>
                             </div>
-                            <div class="col-md-4 col-sm-8">
-                                <small>Amount needed for deployment: <span style="color: #b87a40;">${!! $post->new_amount !!}</span></small>
-                            </div>
+                            
+                        </div>
+                        <div class="col-md-4 col-sm-8">
+                            <small style=" margin: -200px 0 0 85px;">Amount needed for deployment: <span style="color: #b87a40;">${!! $post->new_amount !!}</span></small>
                         </div>
                     </div>
             @endif

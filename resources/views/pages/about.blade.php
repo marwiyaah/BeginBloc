@@ -27,6 +27,7 @@
         <p>This is the project from team ABC of Software Engineering Laboratory.</p>
         <p>Developed By: Maria Akter Rimi</p>
         <p>ID: 011201428</p>
+        <p>Email: mrimi201428@bscse.uiu.ac.bd</p>
     </div>
     
 @endsection

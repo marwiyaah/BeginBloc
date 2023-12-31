@@ -1,10 +1,25 @@
 @extends('layouts.app')
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap">
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+<style>
+    body {
+        font-family: 'Raleway', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh; /* Ensure full height of the viewport */
+    }
+
+    .custom-container {
+        width: 80%; /* Adjust the width as needed */
+    }
+</style>
+
+<div class="container" > 
+    <div class="row justify-content-center" >
+        <div class="col-md-8" >
+            <div class="card" >
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">

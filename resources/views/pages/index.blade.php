@@ -1,34 +1,3 @@
-{{-- @extends('layouts.app')
-
-@section('content')
-
-    <style>
-        body {
-            background: #D5E5E9;
-        }
-    </style>
-
-    <div class="jumbotron text-center">
-        <h1>{{$title}}</h1>
-        <p>This is the project from the team BeginBloc of Software Engineering lab.</p>
-        <p>
-            <a class="btn btn-primary btn-lg" href="/login" role="button">Login</a>
-            <a class="btn btn-success btn-lg" href="/register" role="button">Register</a>
-        </p>
-    </div>
-
-    {{-- <div style="width: 660px; height: 425px; flex-shrink: 0; overflow: hidden;">
-        <img src="homepage_photo.jpg" alt="Your Image Description" style="width: 100%; height: 100%; object-fit: cover;">
-    </div> --}}
-
-    {{-- <div style="width: 100%; color: rgba(0, 0, 0, 0.20); font-size: 60px; font-family: Raleway; font-weight: 700; line-height: 76px; letter-spacing: 0.50px; word-wrap: break-word">
-        <br/>Let's start the start-ups!<br/>
-    </div> --}}
-    
-{{-- @endSection  --}}
-
-{{-- homepage --}}
-
 @extends('layouts.app')
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap">
@@ -114,6 +83,7 @@
     .text-center button:hover {
         background-color: #2A6877;
     }
+    
     </style>
 
     <div class="video-background">
@@ -125,7 +95,6 @@
     </div>
     <div class="video-content">
       <div class="custom-text">
-          {{-- <br/>Let's start the start-ups!<br/> --}}
           <br/>Let's start the start ups!<br/>
       </div>
     </div>
@@ -141,29 +110,20 @@
                 <div class="card card-plain" style="display: flex; flex-direction: column; align-items: center; gap: 20px; background-color: transparent; border: none;">
                   <div class="card-header pb-0 text-start" >
                     <h4 class="font-weight-bolder" style="color: #4E4F51; font-size: 24px; font-family: Raleway; font-weight: 700; letter-spacing: 0.50px;">Get in with your work</h4>
-                    {{-- <p class="mb-0">Enter your email and password to sign in</p> --}}
+                    
                   </div>
                   <div class="card-body">
                     <form role="form">
-                      {{-- <div class="mb-3" style="align-items: left">
-                        <input type="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email">
-                      </div>
-                      <div class="mb-3">
-                        <input type="email" class="form-control form-control-lg" placeholder="Password" aria-label="Password">
-                      </div>
-                      <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="rememberMe">
-                        <label class="form-check-label" for="rememberMe">Remember me</label>
-                      </div> --}}
-                      <div class="text-center">
-                        <a href="/login" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Login</a>
+                      
+                      <div class="text-center" style="width: 250px; margin: -30px 0 -20px 0;">
+                        <a href="/login" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0" >Login</a>
                       </div>
                     </form>
                   </div>
                   <div class="card-footer text-center pt-0 px-lg-2 px-1">
                     <p class="mb-4 text-sm mx-auto">
                       Don't have an account?
-                      <a href="/register" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Sign up</a>
+                      <a href="/register" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0" style="background:rgb(113, 207, 36)">Sign up</a>
                     </p>
                   </div>
                 </div>

@@ -170,9 +170,6 @@ function submitContribution() {
         success: function (response) {
             // Handle the response, e.g., show a success message
             alert('Contribution submitted successfully!');
-
-            // Optionally, you can redirect the user to another page or perform other actions
-            // In this case, redirect to the show page of the post
             window.location.href = '/posts/{{ $post->id }}';
         },
         error: function (error) {

@@ -1,66 +1,128 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Welcome to BeginBloc User guide
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This is the user manual of how to use BeginBloc website, created by team ABC. If you face any problems understanding anything, please contact : mrimi201428@bscse.uu.ac.bd
 
-## About Laravel
+## Introduction
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+BeginBloc was created with the idea to help the small start up companies to introduce themselves in the market as well as to gather fundings for their project and create a network. The uniqueness of each project is what attracts the potential users and the commitment is what binds the trust upon the developers. Therefore, here's a guide of how you could utilize this website being a developer or an investor.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Homepage
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+We kept the design very minimalistic thus it is more understandable to the users. 
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+![Homepage](user/homepage.png)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+After going to website, at first you will encounter this page.
 
-## Laravel Sponsors
+### Register
+If you do not have an account and want to register, then you can either click on 'Register' from navbar or 'Sign up' to create one. 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+After clicking, these page will appear to you. You have to fill the necessary fields to create an account and press 'Register'. That's how easily you can create your account!
 
-### Premium Partners
+![Register](user/register.png)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
 
-## Contributing
+### Login
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Now that you have an account, you can easily enter to your account simply by just giving the email and password. If you have forgotten your password, you can recover that too by clicking 'Forgot your password?'. 
 
-## Code of Conduct
+![Login](user/login.png)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Dashboard
 
-## Security Vulnerabilities
+After login, the first page you encounter is the dashboard. You can create your posts as well as edit, delete and checking the responses of your each created posts.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+![Dashboard](user/dashboard.png)
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Create Post
+
+You can create a post either from your dashboard, or from your 'Blogs' option in the navbar.
+
+N.B: Only the registered accounts can create a post.
+
+![create post](user/create.png)
+
+The option of editing post is exactly the same. 
+
+### Responses
+
+When you successfully create a post and any potential investors shows interest to contribute to your project, you will get that in the responses option. The number of investors' responses will be seen in a (bracket) in your dashboard, beside each posts.
+
+After clicking on response, you can see the details of the investor along with the amount he can contribute.
+
+![response](user/responses.png)
+
+### Blogs
+
+From the navbar, if you click on thi button, it will take you too the page where all the posts posted by different users for funds will be seen.
+
+![Homepage](user/guestBlog.png)
+
+If you click on your own post, there you will see the 'Edit' and 'Delete' button only, as you cannot contribute to your own project.
+
+![selfPost](user/selfPost.png)
+
+Nevertheless, if you click on someone else's post, you can see the option of 'Contribute' instead of 'Edit' and 'Delete'.
+
+![guestPost](user/otherPost.png)
+
+
+### Contribute
+
+From the post, if you click to contribute, you will be taken to this page. Here, by clicking any percentage, it will calculate the estimated amount that you have to give to the project. If you agree with the terms and condition then you can contribute to the project by clicking 'Submit'. 
+
+![contribute](user/contribute.png)
+
+A confirmation dialogue will assure you contribution confirmation.
+
+![confirmation](user/confirm.png)
+
+
+### The navbar
+
+The navbar's design is very simple, still the manual of each of the link it has will be described in the guest section. For your own account, at the very right of the navbar, if you click to your name, you can see these options.
+
+![navbar](user/navbar.png)
+
+
+### Guest
+
+
+ If you are a guest, you might need to create an account by clicking either 'Sign up' or 'Register' from the navbar to create an account. 
+
+Otherwise, what can you see being a guest is described below-
+
+**1. About page**
+   
+   Here you can see the details of the developers and how to contact them.
+
+   ![about](user/about.png)
+
+**2. Services page**
+
+You can see the provided services by this website.
+
+![services](user/services.png)
+
+**3. FAQs**
+
+Here, the FAQs about the websites are given. If you do not find your relatable question here, you can always contact the developers.
+
+![faqs](user/faq.png)
+
+**4. Blogs**
+
+Being a guest user, you can see the posts that need funds for deployment.
+
+![Homepage](user/guestBlog.png)
+![Homepage](user/guestPost.png)
+
+ However, you cannot create, edit, delete and contribute to any post. For that, you must have an account.
+
+
+This was the manual for BeginBloc. We hope that it was helpful for you. If you still got any problem, we request to contact the team ABC. 
+
+## Thank You!

@@ -1,6 +1,6 @@
 # Welcome to BeginBloc User guide
 
-This is the user manual of how to use BeginBloc website, created by team ABC. If you face any problems understanding anything, please contact : mrimi201428@bscse.uu.ac.bd
+This is the user manual of how to use BeginBloc website, created by team ABC.
 
 ## Introduction
 
